@@ -60,3 +60,10 @@ limits, `cg = dω/dk`, speed bounds, and regime classification.
 - `app.py` – Streamlit UI and plots
 - `physics.py` – wave physics (exact, deep-water, and shallow-water solutions)
 - `test_physics.py` – pytest suite
+
+## License
+
+© Copyright 2026 Ryan G. Coe
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License v3.0 as published by the Free Software Foundation. See [LICENSE](LICENSE).

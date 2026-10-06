@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Ryan G. Coe
+# Licensed under the GNU General Public License v3.0 (see LICENSE).
+
 import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
@@ -11,6 +14,7 @@ st.set_page_config(page_title="Ocean Wave Dispersion", layout="wide")
 COLORS = {"Deep": "#1f77b4", "Intermediate": "#2ca02c", "Shallow": "#d62728"}
 
 st.title("🌊 Ocean Wave Dispersion")
+st.caption("© Copyright 2026 Ryan G. Coe · Licensed under GPL-3.0")
 st.caption("Linear (Airy) waves: ω² = g k tanh(k h). Phase speed c = ω/k, group speed cg = dω/dk.")
 
 with st.sidebar:

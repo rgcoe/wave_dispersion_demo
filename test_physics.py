@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Ryan G. Coe
+# Licensed under the GNU General Public License v3.0 (see LICENSE).
+
 import numpy as np
 import pytest
 
