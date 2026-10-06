@@ -7,7 +7,7 @@ import streamlit as st
 from plotly.subplots import make_subplots
 
 from physics import (G, deep_speeds, deep_wavenumber, omega_of_k, regime, shallow_speeds,
-                     speeds, wavenumber)
+                     shallow_wavenumber, speeds, wavenumber)
 
 st.set_page_config(page_title="Ocean Wave Dispersion", layout="wide")
 
@@ -34,6 +34,8 @@ c, cg = (float(v) for v in speeds(k, h))
 name, rule = regime(h, L)
 c_deep, cg_deep = (float(v) for v in deep_speeds(deep_wavenumber(omega)))
 c_shal, cg_shal = (float(v) for v in shallow_speeds(h))
+k_deep = float(deep_wavenumber(omega))
+k_shal = float(shallow_wavenumber(omega, h))
 
 tab1, tab2, tab4 = st.tabs(["Summary", "Dispersion", "Wave group"])
 
@@ -47,8 +49,10 @@ with tab1:
     cols[4].metric("cg / c", f"{cg / c:.2f}")
     st.markdown(
         f"""
-| | Exact | Deep approx. (gT/2π) | Shallow approx. (√gh) |
+| | Exact | Deep water | Shallow water |
 |---|---|---|---|
+| Wavelength L (m) | **{L:.1f}** | {2 * np.pi / k_deep:.1f} | {2 * np.pi / k_shal:.1f} |
+| Wavenumber k (rad/m) | **{k:.4f}** | {k_deep:.4f} | {k_shal:.4f} |
 | Phase speed c (m/s) | **{c:.2f}** | {c_deep:.2f} | {c_shal:.2f} |
 | Group speed cg (m/s) | **{cg:.2f}** | {cg_deep:.2f} | {cg_shal:.2f} |
 """
